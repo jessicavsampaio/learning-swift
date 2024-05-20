@@ -108,6 +108,8 @@
                     </view>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="roundLabel" destination="ufw-Ee-ROM" id="YB7-dE-LHo"/>
+                        <outlet property="scoreLabel" destination="vM2-m7-f3P" id="RcU-fh-day"/>
                         <outlet property="slider" destination="J60-2K-5yf" id="aOS-Xa-6Qg"/>
                         <outlet property="targetLabel" destination="YvU-Jk-1Pr" id="KwK-TT-Jtf"/>
                     </connections>
