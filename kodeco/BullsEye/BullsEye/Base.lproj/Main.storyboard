@@ -107,6 +107,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="slider" destination="J60-2K-5yf" id="aOS-Xa-6Qg"/>
+                        <outlet property="targetLabel" destination="YvU-Jk-1Pr" id="KwK-TT-Jtf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
