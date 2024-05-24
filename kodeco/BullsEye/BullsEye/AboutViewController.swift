@@ -24,6 +24,12 @@ class AboutViewController: UIViewController {
             webview.load(request)
         }
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        webview.stopLoading()
+    }
 
     /*
     // MARK: - Navigation
