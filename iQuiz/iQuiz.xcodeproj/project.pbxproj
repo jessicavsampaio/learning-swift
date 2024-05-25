@@ -13,6 +13,8 @@
 		82B872372C011B1000231C47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82B872352C011B1000231C47 /* Main.storyboard */; };
 		82B872392C011B1100231C47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82B872382C011B1100231C47 /* Assets.xcassets */; };
 		82B8723C2C011B1100231C47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82B8723A2C011B1100231C47 /* LaunchScreen.storyboard */; };
+		82B872442C02125700231C47 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B872432C02125700231C47 /* QuestionViewController.swift */; };
+		82B872462C021E8000231C47 /* Questao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B872452C021E8000231C47 /* Questao.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		82B872382C011B1100231C47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82B8723B2C011B1100231C47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82B8723D2C011B1100231C47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82B872432C02125700231C47 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		82B872452C021E8000231C47 /* Questao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questao.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				82B872382C011B1100231C47 /* Assets.xcassets */,
 				82B8723A2C011B1100231C47 /* LaunchScreen.storyboard */,
 				82B8723D2C011B1100231C47 /* Info.plist */,
+				82B872432C02125700231C47 /* QuestionViewController.swift */,
+				82B872452C021E8000231C47 /* Questao.swift */,
 			);
 			path = iQuiz;
 			sourceTree = "<group>";
@@ -140,6 +146,8 @@
 			files = (
 				82B872342C011B1000231C47 /* ViewController.swift in Sources */,
 				82B872302C011B1000231C47 /* AppDelegate.swift in Sources */,
+				82B872442C02125700231C47 /* QuestionViewController.swift in Sources */,
+				82B872462C021E8000231C47 /* Questao.swift in Sources */,
 				82B872322C011B1000231C47 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
