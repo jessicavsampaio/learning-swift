@@ -12,7 +12,6 @@ class ViewController: UIViewController {
     @IBOutlet var startQuizButton: UIButton!
     
     @IBAction func touchUpButton() {
-        print("O botão foi pressionado!")
     }
     
     override func viewDidLoad() {
@@ -21,6 +20,7 @@ class ViewController: UIViewController {
     }
     
     func setupLayout() {
+        navigationItem.hidesBackButton = true
         startQuizButton.layer.cornerRadius = 12.0
     }
 
