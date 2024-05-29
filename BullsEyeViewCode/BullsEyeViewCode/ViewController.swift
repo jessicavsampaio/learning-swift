@@ -8,13 +8,17 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var currentValue = 0
+    var targetValue = 0
+    var round = 0
+    var score = 0
     
     private lazy var backgroundImageView: UIImageView = {
-            let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-            backgroundImage.image = UIImage(named: "Background")
-            backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
-            return backgroundImage
-        }()
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "Background")
+        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+        return backgroundImage
+    }()
     
     private lazy var titleLabel: UILabel = {
        let label = UILabel()
@@ -25,7 +29,7 @@ class ViewController: UIViewController {
         return label
     }()
     
-    private lazy var randomNumber: UILabel = {
+    private lazy var targetNumberLabel: UILabel = {
        let label = UILabel()
         label.text = "99"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -52,6 +56,8 @@ class ViewController: UIViewController {
         slider.setThumbImage(.sliderThumbNormal, for: .normal)
         slider.setThumbImage(.sliderThumbHighlighted, for: .highlighted)
         slider.setMinimumTrackImage(.sliderTrackLeft, for: .normal)
+        slider.setMaximumTrackImage(.sliderTrackRight, for: .normal)
+        slider.addTarget(self, action: #selector(sliderMoved), for: .valueChanged)
         return slider
     }()
     
@@ -72,6 +78,7 @@ class ViewController: UIViewController {
         button.setTitle("Hit Me!", for: .normal)
         button.setTitleColor(.textButton, for: .normal)
         button.titleLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 20)
+        button.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
         return button
     }()
     
@@ -80,6 +87,7 @@ class ViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setBackgroundImage(.smallButton, for: .normal)
         button.setImage(.startOverIcon, for: .normal)
+        button.addTarget(self, action: #selector(startNewGame), for: .touchUpInside)
         return button
     }()
     
@@ -130,13 +138,76 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        startNewGame()
         addSubviews()
         setupConstraints()
-        // Do any additional setup after loading the view.
     }
     
-    @objc private func sliderValueChanged() {
+    @objc private func sliderMoved(_ sender: UISlider) {
         print("Slider value changed")
+        currentValue = lroundf(sender.value)
+    }
+    
+    @objc private func showAlert() {
+        var difference = currentValue - targetValue
+        if difference < 0 { difference *= -1 }
+        
+        var points = 100 - difference
+        
+        let title: String
+        if difference == 0 {
+            title = "Perfect!"
+            points += 100
+        } else if difference < 5 {
+            title = "You almost had it!"
+            if difference == 1 {
+                points += 50
+            }
+        } else if difference < 10 {
+            title = "Pretty good!"
+        } else {
+            title = "Not even close..."
+        }
+        
+        score += points
+        
+        let message = "You scored \(points) points"
+        
+        let alert = UIAlertController(title: title, 
+                                      message: message,
+                                      preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Ok",
+                                   style: .default,
+                                   handler: { _ in
+            self.startNewRound()
+        })
+        
+        alert.addAction(action)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    @objc private func startNewGame() {
+        score = 0
+        round = 0
+        startNewRound()
+        print("start over buttton pressed")
+    }
+    
+    private func startNewRound() {
+        round += 1
+        targetValue = Int.random(in: 1...100)
+        currentValue = 50
+        slider.value = Float(currentValue)
+        
+        updateLabels()
+    }
+    
+    private func updateLabels() {
+        targetNumberLabel.text = String(targetValue)
+        scoreValueLabel.text = String(score)
+        roundValueLabel.text = String(round)
     }
     
     private func addSubviews() {
@@ -144,7 +215,7 @@ class ViewController: UIViewController {
         view.addSubview(backgroundImageView)
         view.sendSubviewToBack(backgroundImageView)
         view.addSubview(titleLabel)
-        view.addSubview(randomNumber)
+        view.addSubview(targetNumberLabel)
         view.addSubview(minimumSliderLabel)
         view.addSubview(slider)
         view.addSubview(hitMeButton)
@@ -162,8 +233,8 @@ class ViewController: UIViewController {
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 48),
             
-            randomNumber.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 10),
-            randomNumber.topAnchor.constraint(equalTo: view.topAnchor, constant: 48),
+            targetNumberLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 10),
+            targetNumberLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 48),
             
             minimumSliderLabel.trailingAnchor.constraint(equalTo: slider.leadingAnchor, constant: -10),
             minimumSliderLabel.topAnchor.constraint(equalTo: slider.topAnchor),
