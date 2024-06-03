@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Cartography
 
 class ViewController: UIViewController {
     var currentValue = 0
@@ -31,7 +32,6 @@ class ViewController: UIViewController {
     
     private lazy var targetNumberLabel: UILabel = {
        let label = UILabel()
-        label.text = "99"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = .boldSystemFont(ofSize: 20)
@@ -55,8 +55,15 @@ class ViewController: UIViewController {
         slider.translatesAutoresizingMaskIntoConstraints = false
         slider.setThumbImage(.sliderThumbNormal, for: .normal)
         slider.setThumbImage(.sliderThumbHighlighted, for: .highlighted)
-        slider.setMinimumTrackImage(.sliderTrackLeft, for: .normal)
-        slider.setMaximumTrackImage(.sliderTrackRight, for: .normal)
+        
+        let insets = UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
+        let trackLeftImage = UIImage(named: "SliderTrackLeft")
+        let trackLeftResizable = trackLeftImage?.resizableImage(withCapInsets: insets)
+        slider.setMinimumTrackImage(trackLeftResizable, for: .normal)
+        let trackRightImage = UIImage(named: "SliderTrackRight")
+        let trackRightResizable = trackRightImage?.resizableImage(withCapInsets: insets)
+        slider.setMaximumTrackImage(trackRightResizable, for: .normal)
+        
         slider.addTarget(self, action: #selector(sliderMoved), for: .valueChanged)
         return slider
     }()
@@ -102,7 +109,6 @@ class ViewController: UIViewController {
     
     private lazy var scoreValueLabel: UILabel = {
        let label = UILabel()
-        label.text = "999999"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = .boldSystemFont(ofSize: 20)
@@ -120,7 +126,6 @@ class ViewController: UIViewController {
     
     private lazy var roundValueLabel: UILabel = {
        let label = UILabel()
-        label.text = "999"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = .boldSystemFont(ofSize: 20)
@@ -144,7 +149,6 @@ class ViewController: UIViewController {
     }
     
     @objc private func sliderMoved(_ sender: UISlider) {
-        print("Slider value changed")
         currentValue = lroundf(sender.value)
     }
     
@@ -192,7 +196,6 @@ class ViewController: UIViewController {
         score = 0
         round = 0
         startNewRound()
-        print("start over buttton pressed")
     }
     
     private func startNewRound() {
@@ -229,44 +232,63 @@ class ViewController: UIViewController {
     }
     
     private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 48),
+        constrain(titleLabel, targetNumberLabel, view) { label, targetLabel, view in
+            label.centerX == view.centerX
+            label.top == view.top + 48
             
-            targetNumberLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 10),
-            targetNumberLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 48),
+            targetLabel.leading == label.trailing + 10
+            targetLabel.top == label.top
+        }
+        
+        constrain(titleLabel, minimumSliderLabel, slider, maximumSliderLabel, view) { titleLabel, minimumLabel, slider, maximumLabel, view in
+            slider.centerX == view.centerX
+            slider.top == titleLabel.bottom + 64
+            slider.width == view.width * 0.5
             
-            minimumSliderLabel.trailingAnchor.constraint(equalTo: slider.leadingAnchor, constant: -10),
-            minimumSliderLabel.topAnchor.constraint(equalTo: slider.topAnchor),
+            minimumLabel.trailing == slider.leading - 10
+            minimumLabel.top == slider.top
             
-            slider.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            slider.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 64),
-            slider.widthAnchor.constraint(equalTo: titleLabel.widthAnchor, multiplier: 1.2),
+            maximumLabel.leading == slider.trailing + 10
+            maximumLabel.top == slider.top
+        }
+        
+        constrain(hitMeButton, slider, view) { button, slider, view in
+            button.top == slider.bottom + 48
+            button.centerX == view.centerX
+        }
+        
+        constrain(startOverButton, view.safeAreaLayoutGuide) { button, safeArea in
+            button.bottom == safeArea.bottom - 48
+            button.leading == safeArea.leading + 48
+        }
+        
+        constrain(scoreLabel, startOverButton, scoreValueLabel, view) { scoreLabel, button, scoreValueLabel, view in
+            scoreLabel.bottom == button.bottom
+            scoreLabel.leading == button.trailing + 130
             
-            maximumSliderLabel.leadingAnchor.constraint(equalTo: slider.trailingAnchor, constant: 10),
-            maximumSliderLabel.topAnchor.constraint(equalTo: slider.topAnchor),
+            scoreValueLabel.bottom == button.bottom
+            scoreValueLabel.leading == scoreLabel.trailing + 5
+        }
+        
+        constrain(infoButton, view.safeAreaLayoutGuide) { button, safeArea in
+            button.bottom == safeArea.bottom - 48
+            button.trailing == safeArea.trailing - 48
+        }
+        
+        constrain(roundLabel, infoButton, roundValueLabel, view) { roundLabel, button, roundValueLabel, view in
+            roundLabel.bottom == button.bottom
+            roundLabel.trailing == button.leading - 130
             
-            hitMeButton.topAnchor.constraint(equalTo: slider.bottomAnchor, constant: 48),
-            hitMeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
+            roundValueLabel.bottom == button.bottom
+            roundValueLabel.trailing == roundLabel.leading - 5
+        }
+        /*NSLayoutConstraint.activate([
             startOverButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -48),
             startOverButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 48),
             
-            scoreLabel.bottomAnchor.constraint(equalTo: startOverButton.bottomAnchor),
-            scoreLabel.leadingAnchor.constraint(equalTo: startOverButton.trailingAnchor, constant: 130),
-            
-            scoreValueLabel.bottomAnchor.constraint(equalTo: startOverButton.bottomAnchor),
-            scoreValueLabel.leadingAnchor.constraint(equalTo: scoreLabel.trailingAnchor, constant: 5),
-            
-            roundLabel.bottomAnchor.constraint(equalTo: startOverButton.bottomAnchor),
-            roundLabel.trailingAnchor.constraint(equalTo: roundValueLabel.leadingAnchor, constant: -5),
-            
-            roundValueLabel.bottomAnchor.constraint(equalTo: startOverButton.bottomAnchor),
-            roundValueLabel.trailingAnchor.constraint(equalTo: infoButton.leadingAnchor, constant: -130),
-            
             infoButton.bottomAnchor.constraint(equalTo: startOverButton.bottomAnchor),
-            infoButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -48)
-        ])
+            infoButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -48)8
+        ])*/
     }
 
 }

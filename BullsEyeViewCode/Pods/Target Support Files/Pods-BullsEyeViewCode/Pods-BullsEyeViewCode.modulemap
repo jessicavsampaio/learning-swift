@@ -1,0 +1,6 @@
+module Pods_BullsEyeViewCode {
+  umbrella header "Pods-BullsEyeViewCode-umbrella.h"
+
+  export *
+  module * { export * }
+}
