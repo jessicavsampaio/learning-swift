@@ -23,7 +23,6 @@ class ViewController: UIViewController {
     
     private lazy var titleLabel: UILabel = {
        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Put the Bull's Eye as close as you can to:"
         label.textColor = .white
         label.font = .boldSystemFont(ofSize: 20)
@@ -32,7 +31,6 @@ class ViewController: UIViewController {
     
     private lazy var targetNumberLabel: UILabel = {
        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = .boldSystemFont(ofSize: 20)
         return label
@@ -41,7 +39,6 @@ class ViewController: UIViewController {
     private lazy var minimumSliderLabel: UILabel = {
        let label = UILabel()
         label.text = "1"
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = .boldSystemFont(ofSize: 17)
         return label
@@ -52,7 +49,6 @@ class ViewController: UIViewController {
         slider.minimumValue = 0
         slider.maximumValue = 100
         slider.value = 50
-        slider.translatesAutoresizingMaskIntoConstraints = false
         slider.setThumbImage(.sliderThumbNormal, for: .normal)
         slider.setThumbImage(.sliderThumbHighlighted, for: .highlighted)
         
@@ -71,15 +67,19 @@ class ViewController: UIViewController {
     private lazy var maximumSliderLabel: UILabel = {
        let label = UILabel()
         label.text = "100"
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = .boldSystemFont(ofSize: 17)
         return label
     }()
     
+    private lazy var sliderStackView: UIStackView = {
+       let stackview = UIStackView(arrangedSubviews: [minimumSliderLabel, slider, maximumSliderLabel])
+        stackview.spacing = 10
+        return stackview
+    }()
+    
     private lazy var hitMeButton: UIButton = {
        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.setBackgroundImage(.buttonNormal, for: .normal)
         button.setBackgroundImage(.buttonHighlighted, for: .highlighted)
         button.setTitle("Hit Me!", for: .normal)
@@ -91,7 +91,6 @@ class ViewController: UIViewController {
     
     private lazy var startOverButton: UIButton = {
        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.setBackgroundImage(.smallButton, for: .normal)
         button.setImage(.startOverIcon, for: .normal)
         button.addTarget(self, action: #selector(startNewGame), for: .touchUpInside)
@@ -101,7 +100,6 @@ class ViewController: UIViewController {
     private lazy var scoreLabel: UILabel = {
        let label = UILabel()
         label.text = "Score:"
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = .boldSystemFont(ofSize: 17)
         return label
@@ -109,16 +107,20 @@ class ViewController: UIViewController {
     
     private lazy var scoreValueLabel: UILabel = {
        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = .boldSystemFont(ofSize: 20)
         return label
     }()
     
+    private lazy var scoreStackView: UIStackView = {
+       let stackView = UIStackView(arrangedSubviews: [scoreLabel, scoreValueLabel])
+        stackView.spacing = 5
+        return stackView
+    }()
+    
     private lazy var roundLabel: UILabel = {
        let label = UILabel()
         label.text = "Round:"
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = .boldSystemFont(ofSize: 17)
         return label
@@ -126,23 +128,35 @@ class ViewController: UIViewController {
     
     private lazy var roundValueLabel: UILabel = {
        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = .boldSystemFont(ofSize: 20)
         return label
     }()
     
+    private lazy var roundStackView: UIStackView = {
+       let stackView = UIStackView(arrangedSubviews: [roundLabel, roundValueLabel])
+        stackView.spacing = 5
+        return stackView
+    }()
+    
     private lazy var infoButton: UIButton = {
        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.setBackgroundImage(.smallButton, for: .normal)
         button.setImage(.infoButton, for: .normal)
+        button.addTarget(self, action: #selector(infoButtonPressed), for: .touchUpInside)
         return button
+    }()
+    
+    private lazy var footerStackView: UIStackView = {
+       let stackView = UIStackView(arrangedSubviews: [startOverButton, scoreStackView, roundStackView, infoButton])
+        stackView.distribution = .equalSpacing
+        return stackView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.setHidesBackButton(true, animated: true)
         startNewGame()
         addSubviews()
         setupConstraints()
@@ -176,19 +190,15 @@ class ViewController: UIViewController {
         score += points
         
         let message = "You scored \(points) points"
-        
         let alert = UIAlertController(title: title, 
                                       message: message,
                                       preferredStyle: .alert)
-        
         let action = UIAlertAction(title: "Ok",
                                    style: .default,
                                    handler: { _ in
             self.startNewRound()
         })
-        
         alert.addAction(action)
-        
         present(alert, animated: true, completion: nil)
     }
     
@@ -213,82 +223,46 @@ class ViewController: UIViewController {
         roundValueLabel.text = String(round)
     }
     
+    @objc private func infoButtonPressed() {
+        navigationController?.pushViewController(InfoViewController(), animated: true)
+    }
+    
     private func addSubviews() {
         
         view.addSubview(backgroundImageView)
         view.sendSubviewToBack(backgroundImageView)
         view.addSubview(titleLabel)
         view.addSubview(targetNumberLabel)
-        view.addSubview(minimumSliderLabel)
-        view.addSubview(slider)
+        view.addSubview(sliderStackView)
         view.addSubview(hitMeButton)
-        view.addSubview(maximumSliderLabel)
-        view.addSubview(startOverButton)
-        view.addSubview(scoreLabel)
-        view.addSubview(scoreValueLabel)
-        view.addSubview(roundLabel)
-        view.addSubview(roundValueLabel)
-        view.addSubview(infoButton)
+        view.addSubview(footerStackView)
     }
     
     private func setupConstraints() {
-        constrain(titleLabel, targetNumberLabel, view) { label, targetLabel, view in
+        constrain(titleLabel, targetNumberLabel, view.safeAreaLayoutGuide) { label, targetLabel, view in
             label.centerX == view.centerX
-            label.top == view.top + 48
+            label.top == view.top + 24
             
             targetLabel.leading == label.trailing + 10
             targetLabel.top == label.top
         }
         
-        constrain(titleLabel, minimumSliderLabel, slider, maximumSliderLabel, view) { titleLabel, minimumLabel, slider, maximumLabel, view in
-            slider.centerX == view.centerX
-            slider.top == titleLabel.bottom + 64
-            slider.width == view.width * 0.5
-            
-            minimumLabel.trailing == slider.leading - 10
-            minimumLabel.top == slider.top
-            
-            maximumLabel.leading == slider.trailing + 10
-            maximumLabel.top == slider.top
+        constrain(titleLabel, sliderStackView, view.safeAreaLayoutGuide) { titleLabel, stackView, view in
+            stackView.centerX == view.centerX
+            stackView.top == titleLabel.bottom + 64
+            stackView.width == view.width * 0.8
         }
         
-        constrain(hitMeButton, slider, view) { button, slider, view in
+        constrain(hitMeButton, slider, view.safeAreaLayoutGuide) { button, slider, view in
             button.top == slider.bottom + 48
             button.centerX == view.centerX
         }
         
-        constrain(startOverButton, view.safeAreaLayoutGuide) { button, safeArea in
-            button.bottom == safeArea.bottom - 48
-            button.leading == safeArea.leading + 48
+        constrain(footerStackView, hitMeButton, view.safeAreaLayoutGuide) { stackView, button, view in
+            stackView.bottom == view.bottom - 24
+            stackView.leading == view.leading + 48
+            stackView.trailing == view.trailing - 48
         }
-        
-        constrain(scoreLabel, startOverButton, scoreValueLabel, view) { scoreLabel, button, scoreValueLabel, view in
-            scoreLabel.bottom == button.bottom
-            scoreLabel.leading == button.trailing + 130
-            
-            scoreValueLabel.bottom == button.bottom
-            scoreValueLabel.leading == scoreLabel.trailing + 5
-        }
-        
-        constrain(infoButton, view.safeAreaLayoutGuide) { button, safeArea in
-            button.bottom == safeArea.bottom - 48
-            button.trailing == safeArea.trailing - 48
-        }
-        
-        constrain(roundLabel, infoButton, roundValueLabel, view) { roundLabel, button, roundValueLabel, view in
-            roundLabel.bottom == button.bottom
-            roundLabel.trailing == button.leading - 130
-            
-            roundValueLabel.bottom == button.bottom
-            roundValueLabel.trailing == roundLabel.leading - 5
-        }
-        /*NSLayoutConstraint.activate([
-            startOverButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -48),
-            startOverButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 48),
-            
-            infoButton.bottomAnchor.constraint(equalTo: startOverButton.bottomAnchor),
-            infoButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -48)8
-        ])*/
     }
 
 }
