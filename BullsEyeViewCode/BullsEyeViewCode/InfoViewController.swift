@@ -49,7 +49,7 @@ class InfoViewController: UIViewController {
     }
     
     @objc private func closeButtonPressed() {
-        navigationController?.pushViewController(ViewController(), animated: true)
+        self.dismiss(animated: true)
     }
     
     private func addSubviews() {
@@ -62,12 +62,12 @@ class InfoViewController: UIViewController {
     private func setupConstraints() {
         constrain(webView, closeButton, view.safeAreaLayoutGuide) { webview, button, view in
             webview.centerX == view.centerX
-            webview.top == view.top
+            webview.top == view.top + 24
             webview.height == view.height * 0.7
             webview.width == view.width * 0.8
             
             button.centerX == view.centerX
-            button.bottom == view.bottom - 24
+            button.top == webview.bottom + 24
         }
     }
 

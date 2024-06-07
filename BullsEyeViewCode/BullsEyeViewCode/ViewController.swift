@@ -157,9 +157,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.setHidesBackButton(true, animated: true)
-        startNewGame()
+        
         addSubviews()
         setupConstraints()
+        startNewGame()
     }
     
     @objc private func sliderMoved(_ sender: UISlider) {
@@ -224,7 +225,7 @@ class ViewController: UIViewController {
     }
     
     @objc private func infoButtonPressed() {
-        navigationController?.pushViewController(InfoViewController(), animated: true)
+        self.present(InfoViewController(), animated: true)
     }
     
     private func addSubviews() {
