@@ -7,33 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		822AD5AD2C04FF740000B50A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AD5AC2C04FF740000B50A /* AppDelegate.swift */; };
-		822AD5AF2C04FF740000B50A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AD5AE2C04FF740000B50A /* SceneDelegate.swift */; };
-		822AD5B12C04FF740000B50A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AD5B02C04FF740000B50A /* HomeViewController.swift */; };
-		822AD5B62C04FF750000B50A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 822AD5B52C04FF750000B50A /* Assets.xcassets */; };
-		822AD5B92C04FF750000B50A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 822AD5B72C04FF750000B50A /* LaunchScreen.storyboard */; };
-		822AD5C12C06672A0000B50A /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AD5C02C06672A0000B50A /* MoviesViewController.swift */; };
-		822AD6092C1903130000B50A /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AD6082C1903130000B50A /* Movie.swift */; };
-		822AD62C2C1A15790000B50A /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AD62B2C1A15790000B50A /* MovieTableViewCell.swift */; };
-		822AD62E2C1A4CE40000B50A /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AD62D2C1A4CE40000B50A /* MovieDetailsViewController.swift */; };
+		822AD6172C1A06620000B50A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AD6162C1A06620000B50A /* AppDelegate.swift */; };
+		822AD6192C1A06620000B50A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AD6182C1A06620000B50A /* SceneDelegate.swift */; };
+		822AD61B2C1A06620000B50A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AD61A2C1A06620000B50A /* ViewController.swift */; };
+		822AD61E2C1A06620000B50A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 822AD61C2C1A06620000B50A /* Main.storyboard */; };
+		822AD6202C1A06630000B50A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 822AD61F2C1A06630000B50A /* Assets.xcassets */; };
+		822AD6232C1A06630000B50A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 822AD6212C1A06630000B50A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		822AD5A92C04FF740000B50A /* Cinetopia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinetopia.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		822AD5AC2C04FF740000B50A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		822AD5AE2C04FF740000B50A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		822AD5B02C04FF740000B50A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		822AD5B52C04FF750000B50A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		822AD5B82C04FF750000B50A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		822AD5BA2C04FF750000B50A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		822AD5C02C06672A0000B50A /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
-		822AD6082C1903130000B50A /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		822AD62B2C1A15790000B50A /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
-		822AD62D2C1A4CE40000B50A /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
+		822AD6132C1A06620000B50A /* Checklists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklists.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		822AD6162C1A06620000B50A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		822AD6182C1A06620000B50A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		822AD61A2C1A06620000B50A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		822AD61D2C1A06620000B50A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		822AD61F2C1A06630000B50A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		822AD6222C1A06630000B50A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		822AD6242C1A06630000B50A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		822AD5A62C04FF740000B50A /* Frameworks */ = {
+		822AD6102C1A06620000B50A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,99 +37,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		822AD5A02C04FF740000B50A = {
+		822AD60A2C1A06620000B50A = {
 			isa = PBXGroup;
 			children = (
-				822AD5AB2C04FF740000B50A /* Cinetopia */,
-				822AD5AA2C04FF740000B50A /* Products */,
+				822AD6152C1A06620000B50A /* Checklists */,
+				822AD6142C1A06620000B50A /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		822AD5AA2C04FF740000B50A /* Products */ = {
+		822AD6142C1A06620000B50A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				822AD5A92C04FF740000B50A /* Cinetopia.app */,
+				822AD6132C1A06620000B50A /* Checklists.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		822AD5AB2C04FF740000B50A /* Cinetopia */ = {
+		822AD6152C1A06620000B50A /* Checklists */ = {
 			isa = PBXGroup;
 			children = (
-				822AD62A2C1A15440000B50A /* Cells */,
-				822AD6072C1903020000B50A /* Models */,
-				822AD6062C1902E70000B50A /* ViewControllers */,
-				822AD5AC2C04FF740000B50A /* AppDelegate.swift */,
-				822AD5AE2C04FF740000B50A /* SceneDelegate.swift */,
-				822AD5B52C04FF750000B50A /* Assets.xcassets */,
-				822AD5B72C04FF750000B50A /* LaunchScreen.storyboard */,
-				822AD5BA2C04FF750000B50A /* Info.plist */,
+				822AD6162C1A06620000B50A /* AppDelegate.swift */,
+				822AD6182C1A06620000B50A /* SceneDelegate.swift */,
+				822AD61A2C1A06620000B50A /* ViewController.swift */,
+				822AD61C2C1A06620000B50A /* Main.storyboard */,
+				822AD61F2C1A06630000B50A /* Assets.xcassets */,
+				822AD6212C1A06630000B50A /* LaunchScreen.storyboard */,
+				822AD6242C1A06630000B50A /* Info.plist */,
 			);
-			path = Cinetopia;
-			sourceTree = "<group>";
-		};
-		822AD6062C1902E70000B50A /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				822AD5B02C04FF740000B50A /* HomeViewController.swift */,
-				822AD5C02C06672A0000B50A /* MoviesViewController.swift */,
-				822AD62D2C1A4CE40000B50A /* MovieDetailsViewController.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		822AD6072C1903020000B50A /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				822AD6082C1903130000B50A /* Movie.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		822AD62A2C1A15440000B50A /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				822AD62B2C1A15790000B50A /* MovieTableViewCell.swift */,
-			);
-			path = Cells;
+			path = Checklists;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		822AD5A82C04FF740000B50A /* Cinetopia */ = {
+		822AD6122C1A06620000B50A /* Checklists */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 822AD5BD2C04FF750000B50A /* Build configuration list for PBXNativeTarget "Cinetopia" */;
+			buildConfigurationList = 822AD6272C1A06630000B50A /* Build configuration list for PBXNativeTarget "Checklists" */;
 			buildPhases = (
-				822AD5A52C04FF740000B50A /* Sources */,
-				822AD5A62C04FF740000B50A /* Frameworks */,
-				822AD5A72C04FF740000B50A /* Resources */,
+				822AD60F2C1A06620000B50A /* Sources */,
+				822AD6102C1A06620000B50A /* Frameworks */,
+				822AD6112C1A06620000B50A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Cinetopia;
-			productName = Cinetopia;
-			productReference = 822AD5A92C04FF740000B50A /* Cinetopia.app */;
+			name = Checklists;
+			productName = Checklists;
+			productReference = 822AD6132C1A06620000B50A /* Checklists.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		822AD5A12C04FF740000B50A /* Project object */ = {
+		822AD60B2C1A06620000B50A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
-					822AD5A82C04FF740000B50A = {
+					822AD6122C1A06620000B50A = {
 						CreatedOnToolsVersion = 15.2;
 					};
 				};
 			};
-			buildConfigurationList = 822AD5A42C04FF740000B50A /* Build configuration list for PBXProject "Cinetopia" */;
+			buildConfigurationList = 822AD60E2C1A06620000B50A /* Build configuration list for PBXProject "Checklists" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -143,50 +110,55 @@
 				en,
 				Base,
 			);
-			mainGroup = 822AD5A02C04FF740000B50A;
-			productRefGroup = 822AD5AA2C04FF740000B50A /* Products */;
+			mainGroup = 822AD60A2C1A06620000B50A;
+			productRefGroup = 822AD6142C1A06620000B50A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				822AD5A82C04FF740000B50A /* Cinetopia */,
+				822AD6122C1A06620000B50A /* Checklists */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		822AD5A72C04FF740000B50A /* Resources */ = {
+		822AD6112C1A06620000B50A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				822AD5B92C04FF750000B50A /* LaunchScreen.storyboard in Resources */,
-				822AD5B62C04FF750000B50A /* Assets.xcassets in Resources */,
+				822AD6232C1A06630000B50A /* LaunchScreen.storyboard in Resources */,
+				822AD6202C1A06630000B50A /* Assets.xcassets in Resources */,
+				822AD61E2C1A06620000B50A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		822AD5A52C04FF740000B50A /* Sources */ = {
+		822AD60F2C1A06620000B50A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				822AD5B12C04FF740000B50A /* HomeViewController.swift in Sources */,
-				822AD5AD2C04FF740000B50A /* AppDelegate.swift in Sources */,
-				822AD62C2C1A15790000B50A /* MovieTableViewCell.swift in Sources */,
-				822AD62E2C1A4CE40000B50A /* MovieDetailsViewController.swift in Sources */,
-				822AD5AF2C04FF740000B50A /* SceneDelegate.swift in Sources */,
-				822AD5C12C06672A0000B50A /* MoviesViewController.swift in Sources */,
-				822AD6092C1903130000B50A /* Movie.swift in Sources */,
+				822AD61B2C1A06620000B50A /* ViewController.swift in Sources */,
+				822AD6172C1A06620000B50A /* AppDelegate.swift in Sources */,
+				822AD6192C1A06620000B50A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		822AD5B72C04FF750000B50A /* LaunchScreen.storyboard */ = {
+		822AD61C2C1A06620000B50A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				822AD5B82C04FF750000B50A /* Base */,
+				822AD61D2C1A06620000B50A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		822AD6212C1A06630000B50A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				822AD6222C1A06630000B50A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -194,7 +166,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		822AD5BB2C04FF750000B50A /* Debug */ = {
+		822AD6252C1A06630000B50A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -257,7 +229,7 @@
 			};
 			name = Debug;
 		};
-		822AD5BC2C04FF750000B50A /* Release */ = {
+		822AD6262C1A06630000B50A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -313,7 +285,7 @@
 			};
 			name = Release;
 		};
-		822AD5BE2C04FF750000B50A /* Debug */ = {
+		822AD6282C1A06630000B50A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -321,9 +293,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Cinetopia/Info.plist;
+				INFOPLIST_FILE = Checklists/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -331,7 +304,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Cinetopia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Checklists;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -339,7 +312,7 @@
 			};
 			name = Debug;
 		};
-		822AD5BF2C04FF750000B50A /* Release */ = {
+		822AD6292C1A06630000B50A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -347,9 +320,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Cinetopia/Info.plist;
+				INFOPLIST_FILE = Checklists/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -357,7 +331,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Cinetopia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Checklists;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -368,25 +342,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		822AD5A42C04FF740000B50A /* Build configuration list for PBXProject "Cinetopia" */ = {
+		822AD60E2C1A06620000B50A /* Build configuration list for PBXProject "Checklists" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				822AD5BB2C04FF750000B50A /* Debug */,
-				822AD5BC2C04FF750000B50A /* Release */,
+				822AD6252C1A06630000B50A /* Debug */,
+				822AD6262C1A06630000B50A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		822AD5BD2C04FF750000B50A /* Build configuration list for PBXNativeTarget "Cinetopia" */ = {
+		822AD6272C1A06630000B50A /* Build configuration list for PBXNativeTarget "Checklists" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				822AD5BE2C04FF750000B50A /* Debug */,
-				822AD5BF2C04FF750000B50A /* Release */,
+				822AD6282C1A06630000B50A /* Debug */,
+				822AD6292C1A06630000B50A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 822AD5A12C04FF740000B50A /* Project object */;
+	rootObject = 822AD60B2C1A06620000B50A /* Project object */;
 }
