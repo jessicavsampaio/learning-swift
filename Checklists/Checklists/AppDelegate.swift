@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Checklists
 //
-//  Created by Jessica Sampaio on 12/06/24.
+//  Created by Jessica Sampaio on 20/06/24.
 //
 
 import UIKit
