@@ -23,7 +23,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     }
     
     func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem) {
-      if let index = items.firstIndex(of: item) {
+        if let index = items.firstIndex(of: item) {
         let indexPath = IndexPath(row: index, section: 0)
         if let cell = tableView.cellForRow(at: indexPath) {
           configureText(for: cell, with: item)
@@ -66,7 +66,6 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
     func configureCheckmark(for cell: UITableViewCell, with item: ChecklistItem) {
         let label = cell.viewWithTag(1001) as! UILabel
-        
         if item.checked {
             label.text = "√"
         } else {
@@ -100,5 +99,4 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
             }
         }
     }
-
 }
